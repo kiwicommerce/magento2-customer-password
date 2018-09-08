@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<!--
+/**
+* KiwiCommerce
+*
+* Do not edit or add to this file if you wish to upgrade to newer versions in the future.
+* If you wish to customise this module for your needs.
+* Please contact us https://kiwicommerce.co.uk/contacts.
+*
+* @category   KiwiCommerce
+* @package    KiwiCommerce_CustomerPassword
+* @copyright  Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+* @license    https://kiwicommerce.co.uk/magento2-extension-license/
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="Magento_Customer::customer">
+					<resource id="KiwiCommerce_CustomerPassword::customer_password" sortOrder="10" title="Change Customer Password" />
+				</resource>
+				<resource id="Magento_Backend::stores">
+					<resource id="Magento_Backend::stores_settings">
+						<resource id="Magento_Config::config">
+							<resource id="KiwiCommerce_CustomerPassword::config_customerpassword" title="Customer Password By Kiwicommerce"/>
+						</resource>
+					</resource>
+				</resource>
+				<resource id="Magento_Backend::system">
+					<resource id="KiwiCommerce_CustomerPassword::password_log" sortOrder="10" title="Customer Password Log By Kiwicommerce" />
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>

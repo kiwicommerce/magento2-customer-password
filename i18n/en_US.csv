@@ -1,0 +1,28 @@
+"Password Log","Password Log"
+"Could not save the password log: %1","Could not save the password log: %1"
+"Password log with id ""%1"" does not exist.","Password log with id ""%1"" does not exist."
+"You have entered an invalid password for current user.","You have entered an invalid password for current user."
+"Customer ID should be specified.","Customer ID should be specified."
+"Customer Password (ver.","Customer Password (ver."
+") - Developed by",") - Developed by"
+"For technical support ","For technical support "
+"Contact Us","Contact Us"
+"or email us at","or email us at"
+support@kiwicommerce.co.uk,support@kiwicommerce.co.uk
+"<span class=""kiwiCommerce-logo"">KiwiCommerce Extensions</span>","<span class=""kiwiCommerce-logo"">KiwiCommerce Extensions</span>"
+"Customer Password","Customer Password"
+General,General
+Enable,Enable
+"Console Command","Console Command"
+"Enable console command to change customer password","Enable console command to change customer password"
+"Password Management","Password Management"
+"Change Password","Change Password"
+"Current Admin Password","Current Admin Password"
+ID,ID
+"Customer ID","Customer ID"
+"Customer Email","Customer Email"
+"Admin Username","Admin Username"
+"Admin ID","Admin ID"
+"Admin Name","Admin Name"
+"IP Address","IP Address"
+"Logged At","Logged At"

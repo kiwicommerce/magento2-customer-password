@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<!--
+/**
+* KiwiCommerce
+*
+* Do not edit or add to this file if you wish to upgrade to newer versions in the future.
+* If you wish to customise this module for your needs.
+* Please contact us https://kiwicommerce.co.uk/contacts.
+*
+* @category   KiwiCommerce
+* @package    KiwiCommerce_CustomerPassword
+* @copyright  Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+* @license    https://kiwicommerce.co.uk/magento2-extension-license/
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="KiwiCommerce::customer_password" title="Customer Password by KiwiCommerce" module="KiwiCommerce_CustomerPassword" sortOrder="9999" parent="Magento_Backend::system" resource="KiwiCommerce_CustomerPassword::password_log" />
+		<add id="KiwiCommerce_CustomerPassword::kiwicommerce_customer_password_log" module="KiwiCommerce_CustomerPassword" parent="KiwiCommerce::customer_password" resource="KiwiCommerce_CustomerPassword::password_log" sortOrder="10" title="Password Log" action="kiwicommerce_customerpassword/passwordlog/index"/>
+		<add id="KiwiCommerce_CustomerPassword::password_configuration" title="Configuration" module="KiwiCommerce_CustomerPassword" sortOrder="20" parent="KiwiCommerce::customer_password" action="adminhtml/system_config/edit/section/customer_password" resource="KiwiCommerce_CustomerPassword::config_customerpassword" />
+	</menu>
+</config>
