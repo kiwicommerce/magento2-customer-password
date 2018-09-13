@@ -6,15 +6,16 @@
  * If you wish to customise this module for your needs.
  * Please contact us https://kiwicommerce.co.uk/contacts.
  *
- * @category   KiwiCommerce
- * @package    KiwiCommerce_CustomerPassword
- * @copyright  Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license    https://kiwicommerce.co.uk/magento2-extension-license/
+ * @category  KiwiCommerce
+ * @package   KiwiCommerce_CustomerPassword
+ * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @license   https://kiwicommerce.co.uk/magento2-extension-license/
  */
 namespace KiwiCommerce\CustomerPassword\Api\Data;
 
 /**
  * Interface PasswordLogInterface
+ *
  * @package KiwiCommerce\CustomerPassword\Api\Data
  */
 interface PasswordLogInterface
@@ -31,26 +32,30 @@ interface PasswordLogInterface
 
     /**
      * Get passwordlog_id
+     *
      * @return string|null
      */
     public function getPasswordlogId();
 
     /**
      * Set passwordlog_id
-     * @param string $passwordlogId
+     *
+     * @param  string $passwordlogId
      * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
      */
     public function setPasswordlogId($passwordlogId);
 
     /**
      * Get customer_id
+     *
      * @return string|null
      */
     public function getCustomerId();
 
     /**
      * Set customer_id
-     * @param string $customerId
+     *
+     * @param  string $customerId
      * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
      */
     public function setCustomerId($customerId);
@@ -65,7 +70,7 @@ interface PasswordLogInterface
     /**
      * Set customer_email
      *
-     * @param string $customerEmail
+     * @param  string $customerEmail
      * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
      */
     public function setCustomerEmail($customerEmail);
@@ -80,7 +85,7 @@ interface PasswordLogInterface
     /**
      * Set admin_username
      *
-     * @param string $adminUsername
+     * @param  string $adminUsername
      * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
      */
     public function setAdminUsername($adminUsername);
@@ -95,7 +100,7 @@ interface PasswordLogInterface
     /**
      * Set admin_id
      *
-     * @param string $adminId
+     * @param  string $adminId
      * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
      */
     public function setAdminId($adminId);
@@ -110,7 +115,7 @@ interface PasswordLogInterface
     /**
      * Set admin_name
      *
-     * @param string $adminName
+     * @param  string $adminName
      * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
      */
     public function setAdminName($adminName);
@@ -125,7 +130,7 @@ interface PasswordLogInterface
     /**
      * Set ip
      *
-     * @param string $ip
+     * @param  string $ip
      * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
      */
     public function setIp($ip);
@@ -140,7 +145,7 @@ interface PasswordLogInterface
     /**
      * Set logged_at
      *
-     * @param string $loggedAt
+     * @param  string $loggedAt
      * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
      */
     public function setLoggedAt($loggedAt);

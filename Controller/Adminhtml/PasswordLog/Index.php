@@ -6,15 +6,16 @@
  * If you wish to customise this module for your needs.
  * Please contact us https://kiwicommerce.co.uk/contacts.
  *
- * @category   KiwiCommerce
- * @package    KiwiCommerce_CustomerPassword
- * @copyright  Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license    https://kiwicommerce.co.uk/magento2-extension-license/
+ * @category  KiwiCommerce
+ * @package   KiwiCommerce_CustomerPassword
+ * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @license   https://kiwicommerce.co.uk/magento2-extension-license/
  */
 namespace KiwiCommerce\CustomerPassword\Controller\Adminhtml\PasswordLog;
 
 /**
  * Class Index
+ *
  * @package KiwiCommerce\CustomerPassword\Controller\Adminhtml\PasswordLog
  */
 class Index extends \KiwiCommerce\CustomerPassword\Controller\Adminhtml\AbstractPasswordLog

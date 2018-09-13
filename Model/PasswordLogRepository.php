@@ -6,10 +6,10 @@
  * If you wish to customise this module for your needs.
  * Please contact us https://kiwicommerce.co.uk/contacts.
  *
- * @category   KiwiCommerce
- * @package    KiwiCommerce_CustomerPassword
- * @copyright  Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license    https://kiwicommerce.co.uk/magento2-extension-license/
+ * @category  KiwiCommerce
+ * @package   KiwiCommerce_CustomerPassword
+ * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @license   https://kiwicommerce.co.uk/magento2-extension-license/
  */
 namespace KiwiCommerce\CustomerPassword\Model;
 
@@ -27,6 +27,7 @@ use KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterfaceFactory;
 
 /**
  * Class PasswordLogRepository
+ *
  * @package KiwiCommerce\CustomerPassword\Model
  */
 class PasswordLogRepository implements PasswordLogRepositoryInterface
@@ -73,14 +74,15 @@ class PasswordLogRepository implements PasswordLogRepositoryInterface
 
     /**
      * PasswordLogRepository constructor.
-     * @param ResourcePasswordLog $resource
-     * @param PasswordLogFactory $passwordLogFactory
-     * @param PasswordLogInterfaceFactory $dataPasswordLogFactory
-     * @param PasswordLogCollectionFactory $passwordLogCollectionFactory
+     *
+     * @param ResourcePasswordLog                      $resource
+     * @param PasswordLogFactory                       $passwordLogFactory
+     * @param PasswordLogInterfaceFactory              $dataPasswordLogFactory
+     * @param PasswordLogCollectionFactory             $passwordLogCollectionFactory
      * @param PasswordLogSearchResultsInterfaceFactory $searchResultsFactory
-     * @param DataObjectHelper $dataObjectHelper
-     * @param DataObjectProcessor $dataObjectProcessor
-     * @param StoreManagerInterface $storeManager
+     * @param DataObjectHelper                         $dataObjectHelper
+     * @param DataObjectProcessor                      $dataObjectProcessor
+     * @param StoreManagerInterface                    $storeManager
      */
     public function __construct(
         ResourcePasswordLog $resource,
@@ -111,10 +113,12 @@ class PasswordLogRepository implements PasswordLogRepositoryInterface
         try {
             $this->resource->save($passwordLog);
         } catch (\Exception $exception) {
-            throw new CouldNotSaveException(__(
-                'Could not save the password log: %1',
-                $exception->getMessage()
-            ));
+            throw new CouldNotSaveException(
+                __(
+                    'Could not save the password log: %1',
+                    $exception->getMessage()
+                )
+            );
         }
         return $passwordLog;
     }
@@ -156,7 +160,7 @@ class PasswordLogRepository implements PasswordLogRepositoryInterface
         
         $sortOrders = $criteria->getSortOrders();
         if ($sortOrders) {
-            /** @var SortOrder $sortOrder */
+            /* @var SortOrder $sortOrder */
             foreach ($sortOrders as $sortOrder) {
                 $collection->addOrder(
                     $sortOrder->getField(),

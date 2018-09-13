@@ -6,10 +6,10 @@
  * If you wish to customise this module for your needs.
  * Please contact us https://kiwicommerce.co.uk/contacts.
  *
- * @category   KiwiCommerce
- * @package    KiwiCommerce_CustomerPassword
- * @copyright  Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license    https://kiwicommerce.co.uk/magento2-extension-license/
+ * @category  KiwiCommerce
+ * @package   KiwiCommerce_CustomerPassword
+ * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @license   https://kiwicommerce.co.uk/magento2-extension-license/
  */
 
 namespace KiwiCommerce\CustomerPassword\Console\Command;
@@ -24,11 +24,12 @@ use KiwiCommerce\CustomerPassword\Helper\Data;
 
 /**
  * Class ChangeCustomerPassword
+ *
  * @package KiwiCommerce\CustomerPassword\Console\Command
  */
 class ChangeCustomerPassword extends Command
 {
-    /** Options name */
+    /* Options name */
     const ARG_CUSTOMER_ID = 'customer-id';
     const ARG_CUSTOMER_EMAIL = 'customer-email';
     const ARG_CUSTOMER_PASSWORD = 'password';
@@ -90,9 +91,9 @@ class ChangeCustomerPassword extends Command
     /**
      * ChangeCustomerPassword constructor.
      *
-     * @param PasswordManagement $accountManagement
-     * @param State $state
-     * @param Data $helper
+     * @param  PasswordManagement $accountManagement
+     * @param  State              $state
+     * @param  Data               $helper
      * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function __construct(
@@ -108,7 +109,7 @@ class ChangeCustomerPassword extends Command
     }
 
     /**
-     * @param InputInterface $input
+     * @param InputInterface  $input
      * @param OutputInterface $output
      * @return int|null|void
      * @throws \Magento\Framework\Exception\LocalizedException

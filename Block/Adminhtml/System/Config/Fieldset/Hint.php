@@ -6,10 +6,10 @@
  * If you wish to customise this module for your needs.
  * Please contact us https://kiwicommerce.co.uk/contacts.
  *
- * @category   KiwiCommerce
- * @package    KiwiCommerce_CustomerPassword
- * @copyright  Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license    https://kiwicommerce.co.uk/magento2-extension-license/
+ * @category  KiwiCommerce
+ * @package   KiwiCommerce_CustomerPassword
+ * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @license   https://kiwicommerce.co.uk/magento2-extension-license/
  */
 
 namespace KiwiCommerce\CustomerPassword\Block\Adminhtml\System\Config\Fieldset;
@@ -19,6 +19,7 @@ use \Magento\Framework\Data\Form\Element\Renderer\RendererInterface;
 
 /**
  * Class Hint
+ *
  * @package KiwiCommerce\CustomerPassword\Block\Adminhtml\System\Config\Fieldset
  */
 class Hint extends Template implements RendererInterface
@@ -30,9 +31,10 @@ class Hint extends Template implements RendererInterface
 
     /**
      * Class constructor.
-     * @param Template\Context $context
+     *
+     * @param Template\Context                     $context
      * @param \Magento\Framework\Module\ModuleList $moduleList
-     * @param array $data
+     * @param array                                $data
      */
     public function __construct(
         Template\Context $context,

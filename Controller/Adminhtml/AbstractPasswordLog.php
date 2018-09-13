@@ -6,15 +6,16 @@
  * If you wish to customise this module for your needs.
  * Please contact us https://kiwicommerce.co.uk/contacts.
  *
- * @category   KiwiCommerce
- * @package    KiwiCommerce_CustomerPassword
- * @copyright  Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license    https://kiwicommerce.co.uk/magento2-extension-license/
+ * @category  KiwiCommerce
+ * @package   KiwiCommerce_CustomerPassword
+ * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @license   https://kiwicommerce.co.uk/magento2-extension-license/
  */
 namespace KiwiCommerce\CustomerPassword\Controller\Adminhtml;
 
 /**
  * Class Index
+ *
  * @package KiwiCommerce\CustomerPassword\Controller\Adminhtml\PasswordLog
  */
 abstract class AbstractPasswordLog extends \Magento\Backend\App\Action
@@ -32,7 +33,7 @@ abstract class AbstractPasswordLog extends \Magento\Backend\App\Action
     /**
      * Constructor
      *
-     * @param \Magento\Backend\App\Action\Context $context
+     * @param \Magento\Backend\App\Action\Context        $context
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
      */
     public function __construct(

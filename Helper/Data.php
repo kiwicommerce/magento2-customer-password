@@ -6,10 +6,10 @@
  * If you wish to customise this module for your needs.
  * Please contact us https://kiwicommerce.co.uk/contacts.
  *
- * @category   KiwiCommerce
- * @package    KiwiCommerce_CustomerPassword
- * @copyright  Copyright (C) 2018 KiwiCommerce Ltd (https://kiwicommerce.co.uk/)
- * @license    https://kiwicommerce.co.uk/magento2-extension-license/
+ * @category  KiwiCommerce
+ * @package   KiwiCommerce_CustomerPassword
+ * @copyright Copyright (C) 2018 KiwiCommerce Ltd (https://kiwicommerce.co.uk/)
+ * @license   https://kiwicommerce.co.uk/magento2-extension-license/
  */
 
 namespace KiwiCommerce\CustomerPassword\Helper;
@@ -27,7 +27,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
     /**
      * Data constructor.
-     * @param \Magento\Framework\App\Helper\Context $context
+     *
+     * @param \Magento\Framework\App\Helper\Context            $context
      * @param \Magento\Framework\Authorization\PolicyInterface $policyInterface
      */
     public function __construct(
@@ -41,7 +42,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     /**
      * Whether a module is enabled in the configuration or not
      *
-     * @param string $moduleName Fully-qualified module name
+     * @param  string $moduleName Fully-qualified module name
      * @return boolean
      */
     public function isModuleEnabled()
@@ -57,7 +58,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     /**
      * Whether a module output is permitted by the configuration or not
      *
-     * @param string $moduleName Fully-qualified module name
+     * @param  string $moduleName Fully-qualified module name
      * @return boolean
      */
     public function isOutputEnabled()
@@ -105,7 +106,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function isAllowed($user = null)
     {
         if (!$user) {
-            /** @var $currentUser \Magento\Backend\Model\Auth\Session */
+            /* @var $currentUser \Magento\Backend\Model\Auth\Session */
             $user = \Magento\Framework\App\ObjectManager::getInstance()
                 ->get('Magento\Backend\Model\Auth\Session')->getUser();
         }

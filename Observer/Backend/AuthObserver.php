@@ -6,10 +6,10 @@
  * If you wish to customise this module for your needs.
  * Please contact us https://kiwicommerce.co.uk/contacts.
  *
- * @category   KiwiCommerce
- * @package    KiwiCommerce_CustomerPassword
- * @copyright  Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license    https://kiwicommerce.co.uk/magento2-extension-license/
+ * @category  KiwiCommerce
+ * @package   KiwiCommerce_CustomerPassword
+ * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @license   https://kiwicommerce.co.uk/magento2-extension-license/
  */
 
 namespace KiwiCommerce\CustomerPassword\Observer\Backend;
@@ -22,6 +22,7 @@ use KiwiCommerce\CustomerPassword\Helper\Data;
 
 /**
  * Class AuthObserver
+ *
  * @package KiwiCommerce\CustomerPassword\Observer\Backend
  */
 class AuthObserver implements ObserverInterface
@@ -67,10 +68,11 @@ class AuthObserver implements ObserverInterface
 
     /**
      * AuthObserver constructor.
-     * @param Context $context
-     * @param Session $session
+     *
+     * @param Context                     $context
+     * @param Session                     $session
      * @param \Magento\Framework\Registry $registry
-     * @param Data $helper
+     * @param Data                        $helper
      */
     public function __construct(
         Context $context,
@@ -100,15 +102,15 @@ class AuthObserver implements ObserverInterface
             return;
         }
 
-        /** @var \Magento\Framework\App\Action\Action $controller */
+        /* @var \Magento\Framework\App\Action\Action $controller */
         $controller = $observer->getControllerAction();
 
         $redirect = 0;
-        /** @var $currentUser \Magento\Backend\Model\Auth\Session */
+        /* @var $currentUser \Magento\Backend\Model\Auth\Session */
         $currentUser = \Magento\Framework\App\ObjectManager::getInstance()
             ->get('Magento\Backend\Model\Auth\Session')->getUser();
 
-        /** Before updating customer data, ensure that password of current admin user is entered and is correct */
+        /* Before updating customer data, ensure that password of current admin user is entered and is correct */
         $currentUserPasswordField = $this::CURRENT_USER_PASSWORD_FIELD;
         $isCurrentUserPasswordValid = isset($passwords[$currentUserPasswordField])
             && !empty($passwords[$currentUserPasswordField]) && is_string($passwords[$currentUserPasswordField]);

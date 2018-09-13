@@ -7,10 +7,10 @@
  * If you wish to customise this module for your needs.
  * Please contact us https://kiwicommerce.co.uk/contacts.
  *
- * @category   KiwiCommerce
- * @package    KiwiCommerce_CustomerPassword
- * @copyright  Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license    https://kiwicommerce.co.uk/magento2-extension-license/
+ * @category  KiwiCommerce
+ * @package   KiwiCommerce_CustomerPassword
+ * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @license   https://kiwicommerce.co.uk/magento2-extension-license/
  */
 namespace KiwiCommerce\CustomerPassword\Test\Unit\Model;
 
@@ -27,79 +27,129 @@ use Magento\Framework\TestFramework\Unit\Helper\ObjectManager as ObjectManagerHe
  */
 class AccountTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var AccountManagement */
+    /**
+     * @var AccountManagement
+     */
     protected $accountManagement;
 
-    /** @var ObjectManagerHelper */
+    /**
+     * @var ObjectManagerHelper
+     */
     protected $objectManagerHelper;
 
-    /** @var \Magento\Customer\Model\CustomerFactory|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Customer\Model\CustomerFactory|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $customerFactory;
 
-    /** @var \Magento\Framework\Event\ManagerInterface|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Framework\Event\ManagerInterface|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $manager;
 
-    /** @var \Magento\Store\Model\StoreManagerInterface|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Store\Model\StoreManagerInterface|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $storeManager;
 
-    /** @var \Magento\Framework\Math\Random|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Framework\Math\Random|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $random;
 
-    /** @var \Magento\Customer\Model\Metadata\Validator|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Customer\Model\Metadata\Validator|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $validator;
 
-    /** @var \Magento\Customer\Api\Data\ValidationResultsInterfaceFactory|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Customer\Api\Data\ValidationResultsInterfaceFactory|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $validationResultsInterfaceFactory;
 
-    /** @var \Magento\Customer\Api\AddressRepositoryInterface|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Customer\Api\AddressRepositoryInterface|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $addressRepository;
 
-    /** @var \Magento\Customer\Api\CustomerMetadataInterface|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Customer\Api\CustomerMetadataInterface|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $customerMetadata;
 
-    /** @var \Magento\Customer\Model\CustomerRegistry|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Customer\Model\CustomerRegistry|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $customerRegistry;
 
-    /** @var \Psr\Log\LoggerInterface|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Psr\Log\LoggerInterface|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $logger;
 
-    /** @var \Magento\Framework\Encryption\EncryptorInterface|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Framework\Encryption\EncryptorInterface|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $encryptor;
 
-    /** @var \Magento\Customer\Model\Config\Share|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Customer\Model\Config\Share|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $share;
 
-    /** @var \Magento\Framework\Stdlib\StringUtils|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Framework\Stdlib\StringUtils|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $string;
 
-    /** @var \Magento\Customer\Api\CustomerRepositoryInterface|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Customer\Api\CustomerRepositoryInterface|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $customerRepository;
 
-    /** @var \Magento\Framework\App\Config\ScopeConfigInterface|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Framework\App\Config\ScopeConfigInterface|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $scopeConfig;
 
-    /** @var \Magento\Framework\Mail\Template\TransportBuilder|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Framework\Mail\Template\TransportBuilder|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $transportBuilder;
 
-    /** @var \Magento\Framework\Reflection\DataObjectProcessor|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Framework\Reflection\DataObjectProcessor|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $dataObjectProcessor;
 
-    /** @var \Magento\Framework\Registry|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Framework\Registry|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $registry;
 
-    /** @var \Magento\Customer\Helper\View|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Customer\Helper\View|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $customerViewHelper;
 
-    /** @var \Magento\Framework\Stdlib\DateTime|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Framework\Stdlib\DateTime|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $dateTime;
 
-    /** @var \Magento\Customer\Model\Customer|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Customer\Model\Customer|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $customer;
 
-    /** @var \Magento\Framework\DataObjectFactory|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Framework\DataObjectFactory|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $objectFactory;
 
-    /** @var \Magento\Framework\Api\ExtensibleDataObjectConverter|\PHPUnit_Framework_MockObject_MockObject */
+    /**
+     * @var \Magento\Framework\Api\ExtensibleDataObjectConverter|\PHPUnit_Framework_MockObject_MockObject
+     */
     protected $extensibleDataObjectConverter;
 
     /**

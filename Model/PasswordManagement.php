@@ -6,10 +6,10 @@
  * If you wish to customise this module for your needs.
  * Please contact us https://kiwicommerce.co.uk/contacts.
  *
- * @category   KiwiCommerce
- * @package    KiwiCommerce_CustomerPassword
- * @copyright  Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license    https://kiwicommerce.co.uk/magento2-extension-license/
+ * @category  KiwiCommerce
+ * @package   KiwiCommerce_CustomerPassword
+ * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @license   https://kiwicommerce.co.uk/magento2-extension-license/
  */
 namespace KiwiCommerce\CustomerPassword\Model;
 
@@ -20,6 +20,7 @@ use Magento\Framework\HTTP\PhpEnvironment\RemoteAddress;
 
 /**
  * Class PasswordManagement
+ *
  * @package KiwiCommerce\CustomerPassword\Model
  */
 class PasswordManagement
@@ -56,12 +57,13 @@ class PasswordManagement
 
     /**
      * PasswordManagement constructor.
+     *
      * @param CustomerRepositoryInterface $customerRepository
-     * @param CustomerRegistry $customerRegistry
-     * @param Encryptor $encryptor
+     * @param CustomerRegistry            $customerRegistry
+     * @param Encryptor                   $encryptor
      * @param \Magento\Framework\Registry $registry
-     * @param PasswordLogFactory $passwordLogFactory
-     * @param RemoteAddress $remoteAddress
+     * @param PasswordLogFactory          $passwordLogFactory
+     * @param RemoteAddress               $remoteAddress
      */
     public function __construct(
         CustomerRepositoryInterface $customerRepository,
@@ -82,8 +84,8 @@ class PasswordManagement
     /**
      * Change customer password by Email
      *
-     * @param $customerEmail
-     * @param $password
+     * @param  $customerEmail
+     * @param  $password
      * @throws \Magento\Framework\Exception\InputException
      * @throws \Magento\Framework\Exception\LocalizedException
      * @throws \Magento\Framework\Exception\NoSuchEntityException
@@ -104,8 +106,8 @@ class PasswordManagement
     /**
      * Change customer password by id
      *
-     * @param $customerId
-     * @param $password
+     * @param  $customerId
+     * @param  $password
      * @throws \Magento\Framework\Exception\InputException
      * @throws \Magento\Framework\Exception\LocalizedException
      * @throws \Magento\Framework\Exception\NoSuchEntityException
@@ -146,6 +148,7 @@ class PasswordManagement
 
     /**
      * Retrieving current admin detail from registry
+     *
      * @return string
      */
     public function getAdminUser()

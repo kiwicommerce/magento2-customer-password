@@ -6,10 +6,10 @@
  * If you wish to customise this module for your needs.
  * Please contact us https://kiwicommerce.co.uk/contacts.
  *
- * @category   KiwiCommerce
- * @package    KiwiCommerce_CustomerPassword
- * @copyright  Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license    https://kiwicommerce.co.uk/magento2-extension-license/
+ * @category  KiwiCommerce
+ * @package   KiwiCommerce_CustomerPassword
+ * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @license   https://kiwicommerce.co.uk/magento2-extension-license/
  */
 namespace KiwiCommerce\CustomerPassword\Setup;
 
@@ -20,12 +20,13 @@ use Magento\Framework\DB\Adapter\AdapterInterface;
 
 /**
  * Class InstallSchema
+ *
  * @package KiwiCommerce\CustomerPassword\Setup
  */
 class InstallSchema implements InstallSchemaInterface
 {
     /**
-     * @param SchemaSetupInterface $setup
+     * @param SchemaSetupInterface   $setup
      * @param ModuleContextInterface $context
      * @throws \Zend_Db_Exception
      */

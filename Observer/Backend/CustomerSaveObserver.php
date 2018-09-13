@@ -6,10 +6,10 @@
  * If you wish to customise this module for your needs.
  * Please contact us https://kiwicommerce.co.uk/contacts.
  *
- * @category   KiwiCommerce
- * @package    KiwiCommerce_CustomerPassword
- * @copyright  Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license    https://kiwicommerce.co.uk/magento2-extension-license/
+ * @category  KiwiCommerce
+ * @package   KiwiCommerce_CustomerPassword
+ * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @license   https://kiwicommerce.co.uk/magento2-extension-license/
  */
 namespace KiwiCommerce\CustomerPassword\Observer\Backend;
 
@@ -20,6 +20,7 @@ use KiwiCommerce\CustomerPassword\Helper\Data;
 
 /**
  * Class CustomerSaveObserver
+ *
  * @package KiwiCommerce\CustomerPassword\Observer\Backend
  */
 class CustomerSaveObserver implements ObserverInterface
@@ -48,9 +49,10 @@ class CustomerSaveObserver implements ObserverInterface
 
     /**
      * CustomerSaveObserver constructor.
-     * @param Context $context
+     *
+     * @param Context            $context
      * @param PasswordManagement $passwordManagement
-     * @param Data $helper
+     * @param Data               $helper
      */
     public function __construct(
         Context $context,
