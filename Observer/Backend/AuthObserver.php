@@ -116,12 +116,12 @@ class AuthObserver implements ObserverInterface
             && !empty($passwords[$currentUserPasswordField]) && is_string($passwords[$currentUserPasswordField]);
         try {
             if (!($isCurrentUserPasswordValid)) {
-                throw new AuthenticationException(__('You have entered an invalid password for current user.'));
+                throw new AuthenticationException(__('You have entered an invalid password for current admin user.'));
             }
             $currentUser->performIdentityCheck($passwords[$currentUserPasswordField]);
             $this->registry->register('current_admin_user', $currentUser);
         } catch (\Magento\Framework\Exception\AuthenticationException $e) {
-            $this->messageManager->addError(__('You have entered an invalid password for current user.'));
+            $this->messageManager->addError(__('You have entered an invalid password for current admin user.'));
             $redirect = 1;
         } catch (\Magento\Framework\Validator\Exception $e) {
             $messages = $e->getMessages();

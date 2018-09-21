@@ -1,7 +1,7 @@
 "Password Log","Password Log"
 "Could not save the password log: %1","Could not save the password log: %1"
 "Password log with id ""%1"" does not exist.","Password log with id ""%1"" does not exist."
-"You have entered an invalid password for current user.","You have entered an invalid password for current user."
+"You have entered an invalid password for current admin user.","You have entered an invalid password for current admin user."
 "Customer ID should be specified.","Customer ID should be specified."
 "Customer Password (ver.","Customer Password (ver."
 ") - Developed by",") - Developed by"
