@@ -13,7 +13,7 @@
  */
 namespace KiwiCommerce\CustomerPassword\Test\Unit\Model;
 
-class InformationTest extends \PHPUnit_Framework_TestCase
+class InformationTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var
