@@ -104,7 +104,7 @@ class ChangeCustomerPassword extends Command
         $this->accountManagement = $accountManagement;
         $this->state = $state;
         $this->helper = $helper;
-        $this->state->setAreaCode(\Magento\Framework\App\Area::AREA_FRONTEND);
+        $this->state->setAreaCode(\Magento\Framework\App\Area::AREA_ADMINHTML);
         parent::__construct();
     }
 
