@@ -13,12 +13,16 @@
  */
 namespace KiwiCommerce\CustomerPassword\Model\ResourceModel\PasswordLog;
 
+use KiwiCommerce\CustomerPassword\Model\PasswordLog;
+use KiwiCommerce\CustomerPassword\Model\ResourceModel\PasswordLog as PasswordLogRM;
+use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
+
 /**
  * Class Collection
  *
  * @package KiwiCommerce\CustomerPassword\Model\ResourceModel\PasswordLog
  */
-class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
+class Collection extends AbstractCollection
 {
 
     /**
@@ -29,8 +33,8 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     protected function _construct()
     {
         $this->_init(
-            'KiwiCommerce\CustomerPassword\Model\PasswordLog',
-            'KiwiCommerce\CustomerPassword\Model\ResourceModel\PasswordLog'
+            PasswordLog::class,
+            PasswordLogRM::class
         );
     }
 }
