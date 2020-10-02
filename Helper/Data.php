@@ -14,29 +14,43 @@
 
 namespace KiwiCommerce\CustomerPassword\Helper;
 
-class Data extends \Magento\Framework\App\Helper\AbstractHelper
+use Magento\Backend\Model\Auth\Session;
+use Magento\Framework\App\Helper\AbstractHelper;
+use Magento\Framework\App\Helper\Context;
+use Magento\Framework\Authorization\PolicyInterface;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Store\Model\ScopeInterface;
+
+class Data extends AbstractHelper
 {
     const RESOURCE_ID = "KiwiCommerce_CustomerPassword::customer_password";
     const CONFIG_ENABLE_PATH = 'customer_password/general/enable';
     const CONFIG_ENABLE_CLI = 'customer_password/general/enable_cli';
 
     /**
-     * @var \Magento\Framework\Authorization\PolicyInterface
+     * @var PolicyInterface
      */
     public $policyInterface;
+    /**
+     * @var Session
+     */
+    private $authSession;
 
     /**
      * Data constructor.
      *
-     * @param \Magento\Framework\App\Helper\Context            $context
-     * @param \Magento\Framework\Authorization\PolicyInterface $policyInterface
+     * @param Context $context
+     * @param PolicyInterface $policyInterface
+     * @param Session $authSession
      */
     public function __construct(
-        \Magento\Framework\App\Helper\Context $context,
-        \Magento\Framework\Authorization\PolicyInterface $policyInterface
+        Context $context,
+        PolicyInterface $policyInterface,
+        Session $authSession
     ) {
         $this->policyInterface = $policyInterface;
         parent::__construct($context);
+        $this->authSession = $authSession;
     }
 
     /**
@@ -78,7 +92,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function isEnabled()
     {
-        $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
+        $storeScope = ScopeInterface::SCOPE_STORE;
         if ($this->scopeConfig->getValue(self::CONFIG_ENABLE_PATH, $storeScope)) {
             return true;
         }
@@ -92,7 +106,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function isCliEnabled()
     {
-        $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
+        $storeScope = ScopeInterface::SCOPE_STORE;
         if ($this->scopeConfig->getValue(self::CONFIG_ENABLE_CLI, $storeScope)) {
             return true;
         }
@@ -106,9 +120,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function isAllowed($user = null)
     {
         if (!$user) {
-            /* @var $currentUser \Magento\Backend\Model\Auth\Session */
-            $user = \Magento\Framework\App\ObjectManager::getInstance()
-                ->get('Magento\Backend\Model\Auth\Session')->getUser();
+            /* @var $currentUser Session */
+            $user = $this->authSession->getUser();
         }
         $role = $user->getRole();
         $permission = $this->policyInterface->isAllowed($role->getId(), self::RESOURCE_ID);
@@ -122,7 +135,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * Check password section is enable
      *
      * @return bool
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws LocalizedException
      */
     public function isEnablePasswordSection()
     {
@@ -136,7 +149,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * Check password section is enable
      *
      * @return bool
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws LocalizedException
      */
     public function isEnableCliCommand()
     {

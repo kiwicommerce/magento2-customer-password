@@ -13,17 +13,20 @@
  */
 namespace KiwiCommerce\CustomerPassword\Controller\Adminhtml\PasswordLog;
 
+use KiwiCommerce\CustomerPassword\Controller\Adminhtml\AbstractPasswordLog;
+use Magento\Framework\Controller\ResultInterface;
+
 /**
  * Class Index
  *
  * @package KiwiCommerce\CustomerPassword\Controller\Adminhtml\PasswordLog
  */
-class Index extends \KiwiCommerce\CustomerPassword\Controller\Adminhtml\AbstractPasswordLog
+class Index extends AbstractPasswordLog
 {
     /**
      * Index action
      *
-     * @return \Magento\Framework\Controller\ResultInterface
+     * @return ResultInterface
      */
     public function execute()
     {

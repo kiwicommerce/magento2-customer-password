@@ -14,13 +14,14 @@
 namespace KiwiCommerce\CustomerPassword\Model;
 
 use KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface;
+use Magento\Framework\Model\AbstractModel;
 
 /**
  * Class PasswordLog
  *
  * @package KiwiCommerce\CustomerPassword\Model
  */
-class PasswordLog extends \Magento\Framework\Model\AbstractModel implements PasswordLogInterface
+class PasswordLog extends AbstractModel implements PasswordLogInterface
 {
 
     protected $_eventPrefix = 'kiwicommerce_customer_password_log';
@@ -30,7 +31,7 @@ class PasswordLog extends \Magento\Framework\Model\AbstractModel implements Pass
      */
     protected function _construct()
     {
-        $this->_init('KiwiCommerce\CustomerPassword\Model\ResourceModel\PasswordLog');
+        $this->_init(ResourceModel\PasswordLog::class);
     }
 
     /**
@@ -47,7 +48,8 @@ class PasswordLog extends \Magento\Framework\Model\AbstractModel implements Pass
      * Set passwordlog_id
      *
      * @param  string $passwordlogId
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
+     *
+     * @return PasswordLogInterface
      */
     public function setPasswordlogId($passwordlogId)
     {
@@ -68,7 +70,8 @@ class PasswordLog extends \Magento\Framework\Model\AbstractModel implements Pass
      * Set customer_id
      *
      * @param  string $customerId
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
+     *
+     * @return PasswordLogInterface
      */
     public function setCustomerId($customerId)
     {
@@ -89,7 +92,8 @@ class PasswordLog extends \Magento\Framework\Model\AbstractModel implements Pass
      * Set customer_email
      *
      * @param  string $customerEmail
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
+     *
+     * @return PasswordLogInterface
      */
     public function setCustomerEmail($customerEmail)
     {
@@ -110,7 +114,8 @@ class PasswordLog extends \Magento\Framework\Model\AbstractModel implements Pass
      * Set admin_username
      *
      * @param  string $adminUsername
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
+     *
+     * @return PasswordLogInterface
      */
     public function setAdminUsername($adminUsername)
     {
@@ -131,7 +136,8 @@ class PasswordLog extends \Magento\Framework\Model\AbstractModel implements Pass
      * Set admin_id
      *
      * @param  string $adminId
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
+     *
+     * @return PasswordLogInterface
      */
     public function setAdminId($adminId)
     {
@@ -151,8 +157,9 @@ class PasswordLog extends \Magento\Framework\Model\AbstractModel implements Pass
     /**
      * Set admin_name
      *
-     * @param  string $adminName
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
+     * @param string $adminName
+     *
+     * @return PasswordLogInterface
      */
     public function setAdminName($adminName)
     {
@@ -172,8 +179,9 @@ class PasswordLog extends \Magento\Framework\Model\AbstractModel implements Pass
     /**
      * Set ip
      *
-     * @param  string $ip
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
+     * @param string $ip
+     *
+     * @return PasswordLogInterface
      */
     public function setIp($ip)
     {
@@ -193,8 +201,9 @@ class PasswordLog extends \Magento\Framework\Model\AbstractModel implements Pass
     /**
      * Set logged_at
      *
-     * @param  string $loggedAt
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
+     * @param string $loggedAt
+     *
+     * @return PasswordLogInterface
      */
     public function setLoggedAt($loggedAt)
     {

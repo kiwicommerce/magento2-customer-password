@@ -13,12 +13,14 @@
  */
 namespace KiwiCommerce\CustomerPassword\Model\ResourceModel;
 
+use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
+
 /**
  * Class PasswordLog
  *
  * @package KiwiCommerce\CustomerPassword\Model\ResourceModel
  */
-class PasswordLog extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
+class PasswordLog extends AbstractDb
 {
     /**
      * Define resource model

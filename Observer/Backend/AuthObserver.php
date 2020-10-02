@@ -14,11 +14,22 @@
 
 namespace KiwiCommerce\CustomerPassword\Observer\Backend;
 
+use Magento\Backend\Model\Auth\Session as AuthSession;
+use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
+use Magento\Framework\App\ActionFlag;
+use Magento\Framework\App\Response\RedirectInterface;
+use Magento\Framework\DataObjectFactory;
+use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Exception\AuthenticationException;
 use Magento\Backend\Model\Session;
 use KiwiCommerce\CustomerPassword\Helper\Data;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Message\ManagerInterface;
+use Magento\Framework\Registry;
+use Magento\Framework\UrlInterface;
+use Magento\Framework\Validator\Exception;
 
 /**
  * Class AuthObserver
@@ -30,7 +41,7 @@ class AuthObserver implements ObserverInterface
     const CURRENT_USER_PASSWORD_FIELD = 'admin_password';
 
     /**
-     * @var \Magento\Framework\Message\ManagerInterface
+     * @var ManagerInterface
      */
     protected $messageManager;
 
@@ -40,22 +51,22 @@ class AuthObserver implements ObserverInterface
     protected $session;
 
     /**
-     * @var \Magento\Framework\UrlInterface
+     * @var UrlInterface
      */
     protected $url;
 
     /**
-     * @var \Magento\Framework\App\Response\RedirectInterface
+     * @var RedirectInterface
      */
     protected $redirect;
 
     /**
-     * @var \Magento\Framework\App\ActionFlag
+     * @var ActionFlag
      */
     protected $actionFlag;
 
     /**
-     * @var \Magento\Framework\Registry
+     * @var Registry
      */
     protected $registry;
 
@@ -65,20 +76,32 @@ class AuthObserver implements ObserverInterface
      * @var Data
      */
     protected $helper;
+    /**
+     * @var AuthSession
+     */
+    private $authSession;
+    /**
+     * @var DataObjectFactory
+     */
+    private $dataObjectFactory;
 
     /**
      * AuthObserver constructor.
      *
-     * @param Context                     $context
-     * @param Session                     $session
-     * @param \Magento\Framework\Registry $registry
-     * @param Data                        $helper
+     * @param Context $context
+     * @param Session $session
+     * @param Registry $registry
+     * @param Data $helper
+     * @param AuthSession $authSession
+     * @param DataObjectFactory $dataObjectFactory
      */
     public function __construct(
         Context $context,
         Session $session,
-        \Magento\Framework\Registry $registry,
-        Data $helper
+        Registry $registry,
+        Data $helper,
+        AuthSession $authSession,
+        DataObjectFactory $dataObjectFactory
     ) {
         $this->messageManager = $context->getMessageManager();
         $this->url = $context->getUrl();
@@ -87,28 +110,30 @@ class AuthObserver implements ObserverInterface
         $this->session = $session;
         $this->registry = $registry;
         $this->helper = $helper;
+        $this->context = $context;
+        $this->authSession = $authSession;
+        $this->dataObjectFactory = $dataObjectFactory;
     }
 
     /**
-     * @param \Magento\Framework\Event\Observer $observer
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @param Observer $observer
+     * @throws LocalizedException
      */
-    public function execute(\Magento\Framework\Event\Observer $observer)
+    public function execute(Observer $observer)
     {
         $originalRequestData = $observer->getEvent()->getRequest()->getPostValue();
-        $customer = new \Magento\Framework\DataObject($originalRequestData['customer']);
+        $customer = $this->dataObjectFactory->create($originalRequestData['customer']);
         $passwords = $customer->getPasswordSection();
         if (empty($passwords['password']) || !$this->helper->isEnablePasswordSection()) {
             return;
         }
 
-        /* @var \Magento\Framework\App\Action\Action $controller */
+        /* @var Action $controller */
         $controller = $observer->getControllerAction();
 
         $redirect = 0;
-        /* @var $currentUser \Magento\Backend\Model\Auth\Session */
-        $currentUser = \Magento\Framework\App\ObjectManager::getInstance()
-            ->get('Magento\Backend\Model\Auth\Session')->getUser();
+        /* @var $currentUser AuthSession */
+        $currentUser = $this->authSession->getUser();
 
         /* Before updating customer data, ensure that password of current admin user is entered and is correct */
         $currentUserPasswordField = $this::CURRENT_USER_PASSWORD_FIELD;
@@ -120,14 +145,14 @@ class AuthObserver implements ObserverInterface
             }
             $currentUser->performIdentityCheck($passwords[$currentUserPasswordField]);
             $this->registry->register('current_admin_user', $currentUser);
-        } catch (\Magento\Framework\Exception\AuthenticationException $e) {
+        } catch (AuthenticationException $e) {
             $this->messageManager->addError(__('You have entered an invalid password for current admin user.'));
             $redirect = 1;
-        } catch (\Magento\Framework\Validator\Exception $e) {
+        } catch (Exception $e) {
             $messages = $e->getMessages();
             $this->messageManager->addMessages($messages);
             $redirect = 1;
-        } catch (\Magento\Framework\Exception\LocalizedException $e) {
+        } catch (LocalizedException $e) {
             if ($e->getMessage()) {
                 $this->messageManager->addError($e->getMessage());
             }
@@ -144,7 +169,7 @@ class AuthObserver implements ObserverInterface
             }
 
             $this->session->setCustomerFormData($originalRequestData);
-            $this->actionFlag->set('', \Magento\Framework\App\Action\Action::FLAG_NO_DISPATCH, true);
+            $this->actionFlag->set('', Action::FLAG_NO_DISPATCH, true);
             $this->redirect->redirect($controller->getResponse(), $redirectUrl);
         }
     }
