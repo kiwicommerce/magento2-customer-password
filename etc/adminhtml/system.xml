@@ -33,7 +33,7 @@
 				</field>
 				<field id="enable_cli" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label comment" type="select">
 					<label>Console Command</label>
-            				<comment><![CDATA[Enable console command to change customer's password by either id or email <br /><code>customer:password:change [-p|--password="..."] [-i|--customer-id[="..."]] [-e|--customer-email[="..."]]</code> ]]></comment>
+            		<comment><![CDATA[Enable console command to change customer's password by either id or email <br /><code>customer:password:change [-p|--password="..."] [-i|--customer-id[="..."]] [-e|--customer-email[="..."]]</code> ]]></comment>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 				</field>
 			</group>
