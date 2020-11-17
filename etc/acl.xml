@@ -18,17 +18,17 @@
 		<resources>
 			<resource id="Magento_Backend::admin">
 				<resource id="Magento_Customer::customer">
-					<resource id="KiwiCommerce_CustomerPassword::customer_password" sortOrder="10" title="Change Customer Password" />
+					<resource id="KiwiCommerce_CustomerPassword::customer_password" sortOrder="10" title="Change Customer Password" translate="title" />
 				</resource>
 				<resource id="Magento_Backend::stores">
 					<resource id="Magento_Backend::stores_settings">
 						<resource id="Magento_Config::config">
-							<resource id="KiwiCommerce_CustomerPassword::config_customerpassword" title="Customer Password By Kiwicommerce"/>
+							<resource id="KiwiCommerce_CustomerPassword::config_customerpassword" title="Customer Password By Kiwicommerce" translate="title" />
 						</resource>
 					</resource>
 				</resource>
 				<resource id="Magento_Backend::system">
-					<resource id="KiwiCommerce_CustomerPassword::password_log" sortOrder="10" title="Customer Password Log By Kiwicommerce" />
+					<resource id="KiwiCommerce_CustomerPassword::password_log" sortOrder="10" title="Customer Password Log By Kiwicommerce" translate="title" />
 				</resource>
 			</resource>
 		</resources>
