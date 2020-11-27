@@ -117,7 +117,7 @@ class ChangeCustomerPassword extends Command
         InputInterface $input,
         OutputInterface $output
     ) {
-        //$this->state->setAreaCode(\Magento\Framework\App\Area::AREA_FRONTEND);
+        $this->state->setAreaCode(\Magento\Framework\App\Area::AREA_ADMINHTML);
         $customerId = $input->getOption(self::ARG_CUSTOMER_ID);
         $customerEmail = $input->getOption(self::ARG_CUSTOMER_EMAIL);
         $password = $input->getOption(self::ARG_CUSTOMER_PASSWORD);
