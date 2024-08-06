@@ -104,6 +104,7 @@ class ChangeCustomerPassword extends Command
         $this->accountManagement = $accountManagement;
         $this->state = $state;
         $this->helper = $helper;
+        $this->state->setAreaCode(\Magento\Framework\App\Area::AREA_ADMINHTML);
         parent::__construct();
     }
 
@@ -130,15 +131,11 @@ class ChangeCustomerPassword extends Command
             $output->writeln("<error>Enter either one of the field --customer-id <customer ID> or --customer-email <customer email></error>");
         } else {
             try {
-                $func = null;
                 if ($customerEmail) {
-                    $func = [$this->accountManagement, 'changePassword'];
-                    $args = [$customerEmail, $password];
+                    $this->accountManagement->changePassword($customerEmail, $password);
                 } elseif ($customerId) {
-                    $func = [$this->accountManagement, 'changePasswordById'];
-                    $args = [$customerId, $password];
+                    $this->accountManagement->changePasswordById($customerId, $password);
                 }
-                $this->state->emulateAreaCode(\Magento\Framework\App\Area::AREA_ADMINHTML, $func, $args);
                 $output->writeln('Customer password has been changed.');
             } catch (\Exception $e) {
                 $output->write($e->getMessage());
