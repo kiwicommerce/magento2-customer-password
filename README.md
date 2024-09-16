@@ -14,7 +14,7 @@ The `KiwiCommerce_CustomerPassword` module allows administrators to change custo
 1. Navigate to your Magento 2 root directory.
 2. Run the following command:
     ```bash
-    composer require kiwi-commerce/module-customer-password
+    composer require kiwicommerce/module-customer-password
     ```
 3. Enable the module:
     ```bash
