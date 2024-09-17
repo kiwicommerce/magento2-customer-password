@@ -15,7 +15,9 @@
 namespace KiwiCommerce\CustomerPassword\Block\Adminhtml\System\Config\Fieldset;
 
 use \Magento\Backend\Block\Template;
+use Magento\Framework\Data\Form\Element\AbstractElement;
 use \Magento\Framework\Data\Form\Element\Renderer\RendererInterface;
+use Magento\Framework\Module\ModuleList;
 
 /**
  * Class Hint
@@ -25,7 +27,7 @@ use \Magento\Framework\Data\Form\Element\Renderer\RendererInterface;
 class Hint extends Template implements RendererInterface
 {
     /**
-     * @var \Magento\Framework\Module\ModuleList
+     * @var ModuleList
      */
     private $moduleList;
 
@@ -33,12 +35,12 @@ class Hint extends Template implements RendererInterface
      * Class constructor.
      *
      * @param Template\Context                     $context
-     * @param \Magento\Framework\Module\ModuleList $moduleList
+     * @param ModuleList $moduleList
      * @param array                                $data
      */
     public function __construct(
         Template\Context $context,
-        \Magento\Framework\Module\ModuleList $moduleList,
+        ModuleList $moduleList,
         array $data = []
     ) {
         $this->_template = 'KiwiCommerce_CustomerPassword::system/config/fieldset/hint.phtml';
@@ -47,10 +49,10 @@ class Hint extends Template implements RendererInterface
     }
 
     /**
-     * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
+     * @param AbstractElement $element
      * @return string
      */
-    public function render(\Magento\Framework\Data\Form\Element\AbstractElement $element)
+    public function render(AbstractElement $element)
     {
         $_element = $element;
         return $this->toHtml();

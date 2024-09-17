@@ -41,7 +41,8 @@ interface PasswordLogInterface
      * Set passwordlog_id
      *
      * @param  string $passwordlogId
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
+     *
+     * @return PasswordLogInterface
      */
     public function setPasswordlogId($passwordlogId);
 
@@ -56,7 +57,8 @@ interface PasswordLogInterface
      * Set customer_id
      *
      * @param  string $customerId
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
+     *
+     * @return PasswordLogInterface
      */
     public function setCustomerId($customerId);
 
@@ -71,7 +73,8 @@ interface PasswordLogInterface
      * Set customer_email
      *
      * @param  string $customerEmail
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
+     *
+     * @return PasswordLogInterface
      */
     public function setCustomerEmail($customerEmail);
 
@@ -86,7 +89,8 @@ interface PasswordLogInterface
      * Set admin_username
      *
      * @param  string $adminUsername
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
+     *
+     * @return PasswordLogInterface
      */
     public function setAdminUsername($adminUsername);
 
@@ -101,7 +105,8 @@ interface PasswordLogInterface
      * Set admin_id
      *
      * @param  string $adminId
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
+     *
+     * @return PasswordLogInterface
      */
     public function setAdminId($adminId);
 
@@ -115,8 +120,9 @@ interface PasswordLogInterface
     /**
      * Set admin_name
      *
-     * @param  string $adminName
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
+     * @param string $adminName
+     *
+     * @return PasswordLogInterface
      */
     public function setAdminName($adminName);
 
@@ -130,8 +136,9 @@ interface PasswordLogInterface
     /**
      * Set ip
      *
-     * @param  string $ip
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
+     * @param string $ip
+     *
+     * @return PasswordLogInterface
      */
     public function setIp($ip);
 
@@ -145,8 +152,9 @@ interface PasswordLogInterface
     /**
      * Set logged_at
      *
-     * @param  string $loggedAt
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface
+     * @param string $loggedAt
+     *
+     * @return PasswordLogInterface
      */
     public function setLoggedAt($loggedAt);
 }
