@@ -15,8 +15,8 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
 	<menu>
-		<add id="KiwiCommerce::customer_password" title="Customer Password by KiwiCommerce" module="KiwiCommerce_CustomerPassword" sortOrder="9999" parent="Magento_Backend::system" resource="KiwiCommerce_CustomerPassword::password_log" />
-		<add id="KiwiCommerce_CustomerPassword::kiwicommerce_customer_password_log" module="KiwiCommerce_CustomerPassword" parent="KiwiCommerce::customer_password" resource="KiwiCommerce_CustomerPassword::password_log" sortOrder="10" title="Password Log" action="kiwicommerce_customerpassword/passwordlog/index"/>
-		<add id="KiwiCommerce_CustomerPassword::password_configuration" title="Configuration" module="KiwiCommerce_CustomerPassword" sortOrder="20" parent="KiwiCommerce::customer_password" action="adminhtml/system_config/edit/section/customer_password" resource="KiwiCommerce_CustomerPassword::config_customerpassword" />
+		<add id="KiwiCommerce::customer_password" title="Customer Password by KiwiCommerce" module="KiwiCommerce_CustomerPassword" sortOrder="9999" parent="Magento_Backend::system" resource="KiwiCommerce_CustomerPassword::password_log" translate="title" />
+		<add id="KiwiCommerce_CustomerPassword::kiwicommerce_customer_password_log" module="KiwiCommerce_CustomerPassword" parent="KiwiCommerce::customer_password" resource="KiwiCommerce_CustomerPassword::password_log" sortOrder="10" title="Password Log" action="kiwicommerce_customerpassword/passwordlog/index" translate="title" />
+		<add id="KiwiCommerce_CustomerPassword::password_configuration" title="Configuration" module="KiwiCommerce_CustomerPassword" sortOrder="20" parent="KiwiCommerce::customer_password" action="adminhtml/system_config/edit/section/customer_password" resource="KiwiCommerce_CustomerPassword::config_customerpassword" translate="title" />
 	</menu>
 </config>
