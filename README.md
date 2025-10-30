@@ -9,28 +9,18 @@ The `KiwiCommerce_CustomerPassword` module allows administrators to change custo
 - Secure password handling to ensure customer data privacy.
 
 ## Installation
-
-### Composer Installation
-1. Navigate to your Magento 2 root directory.
-2. Run the following command:
-    ```bash
-    composer require kiwi-commerce/module-customer-password
-    ```
-3. Enable the module:
+1. Download the latest the customer password extension from [here](https://kiwicommerce.co.uk/product/customer-password/)
+2. Download the module package and extract it.
+3. Copy the extracted files to `app/code/KiwiCommerce/CustomerPassword`.
+4. Enable the module:
     ```bash
     bin/magento module:enable KiwiCommerce_CustomerPassword
     ```
-4. After install the extension, run the following command <br/>
+5. After install the extension, run the following command <br/>
   `php bin/magento setup:upgrade`<br />
   `php bin/magento setup:di:compile`<br />
   `php bin/magento setup:static-content:deploy`<br />
-  `php bin/magento cache:flush`
-    ```
-
-### Manual Installation
-1. Download the module package and extract it.
-2. Copy the extracted files to `app/code/KiwiCommerce/CustomerPassword`.
-3. Follow steps 3-6 from the Composer Installation instructions above.
+  `php bin/magento cache:flush`<br />
 
 ## Usage
 1. Log in to the Magento admin panel.
@@ -51,8 +41,3 @@ We love answering questions or doubts simply ask us in issue section. We're look
 - Follow us <a href="https://twitter.com/KiwiCommerce">@KiwiCommerce</a>
 - <a href="mailto:support@kiwicommerce.co.uk">Email Us</a>
 - Have a look at our <a href="https://kiwicommerce.co.uk/docs/inventory-log/">documentation</a> 
-
-
-
-
-
